@@ -1,10 +1,11 @@
 const gridContainer = document.querySelector(".container");
+const button = document.querySelector(".num-squares");
 
-function createRow() {
+function createRow(size) {
     const row = document.createElement("div");
     row.classList.add("row");
 
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < size; i++) {
         const cell = document.createElement("div");
         cell.classList.add("cell");
 
@@ -18,11 +19,22 @@ function createRow() {
     return row;
 }
 
-function createGrid() {
-    for (let i = 0; i < 16; i++) {
-        const newRow = createRow();
+function createGrid(size) {
+    for (let i = 0; i < size; i++) {
+        const newRow = createRow(size);
         gridContainer.appendChild(newRow);
     } 
 }
 
 createGrid();
+
+button.addEventListener("click", () => {
+    let numSquares = 101;
+
+    while (!(numSquares <= 100)) {
+        numSquares = parseInt(prompt("Enter new grid size"));
+    };
+
+    gridContainer.innerHTML = "";
+    createGrid(numSquares);
+});
