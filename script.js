@@ -26,7 +26,7 @@ function createGrid(size) {
     } 
 }
 
-createGrid();
+createGrid(64);
 
 button.addEventListener("click", () => {
     let numSquares = 101;
